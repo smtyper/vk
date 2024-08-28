@@ -369,6 +369,11 @@ public static class VkErrorCode
 	public const int TooManyAdsPosts = 224;
 
 	/// <summary>
+	/// Превышен лимит друзей
+	/// </summary>
+	public const int TooManyFriends = 242;
+
+	/// <summary>
 	/// Доступ к списку групп запрещен из-за настроек конфиденциальности пользователя.
 	/// </summary>
 	public const int GroupsListAccessDenied = 260;
