@@ -402,7 +402,7 @@ public class User
 	/// Информация о военной службе пользователя.
 	/// </summary>
 	[JsonProperty("military")]
-	public Military Military { get; set; }
+	public Military[] Military { get; set; }
 
 	/// <summary>
 	/// Любимые фильмы пользователя.

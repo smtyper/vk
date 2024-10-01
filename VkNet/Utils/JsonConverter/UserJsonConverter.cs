@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -199,7 +199,7 @@ public class UserJsonConverter : JsonConverter<User>
 					.ToString()),
 			Military = !response.ContainsKey("military")
 				? null
-				: JsonConvert.DeserializeObject<Military>(response["military"]
+				: JsonConvert.DeserializeObject<Military[]>(response["military"]
 					.ToString()),
 			Blacklisted = response["blacklisted"],
 			BlacklistedByMe = response["blacklisted_by_me"],
