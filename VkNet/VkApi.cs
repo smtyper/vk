@@ -791,6 +791,9 @@ public class VkApi : IVkApi
 	/// <inheritdoc />
 	public IShortVideoCategory ShortVideo { get; set; }
 
+	/// <inheritdoc />
+	public ICallsCategory Calls { get; set; }
+
 	#endregion
 
 	#region private
@@ -1084,6 +1087,7 @@ public class VkApi : IVkApi
 		DownloadedGames = new DownloadedGamesCategory(this);
 		Asr = new AsrCategory(this);
 		ShortVideo = new ShortVideoCategory(this);
+		Calls = new CallsCategory(this);
 
 		RequestsPerSecond = 3;
 
