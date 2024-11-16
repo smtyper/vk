@@ -233,4 +233,9 @@ public interface IVkApiCategories
 	/// ShortVideo
 	/// </summary>
 	IShortVideoCategory ShortVideo { get; }
+
+	/// <summary>
+	/// Store
+	/// </summary>
+	IStoreCategory Store { get; }
 }
