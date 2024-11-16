@@ -10,4 +10,7 @@ public interface IStoreCategory : IStoreCategoryAsync
 {
 	/// <inheritdoc cref="IStoreCategoryAsync.AddStickersToFavoriteAsync"/>
 	bool AddStickersToFavorite(StoreAddStickerToFavoriteParams @params);
+
+	/// <inheritdoc cref="IStoreCategoryAsync.GetFavoriteStickersAsync"/>
+	VkCollection<Sticker> GetFavoriteStickers();
 }

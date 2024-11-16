@@ -23,4 +23,14 @@ public interface IStoreCategoryAsync
 	/// </remarks>
 	Task<bool> AddStickersToFavoriteAsync(StoreAddStickerToFavoriteParams @params,
 										CancellationToken token = default);
+
+	/// <summary>
+	/// Возвращает список избранных стикеров.
+	/// </summary>
+	/// <param name="token">Токен отмены операции</param>
+	/// <returns>После успешного выполнения возвращает список объектов Sticker</returns>
+	/// <remarks>
+	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.getFavoriteStickers
+	/// </remarks>
+	Task<VkCollection<Sticker>> GetFavoriteStickersAsync(CancellationToken token = default);
 }

@@ -23,4 +23,39 @@ public class StoreCategoryTest : CategoryBaseTest
 		result.Should()
 			.BeTrue();
 	}
+
+	[Fact]
+	public void GetFavoriteStickers()
+	{
+		Url = "https://api.vk.com/method/store.getFavoriteStickers";
+
+		ReadCategoryJsonPath(nameof(GetFavoriteStickers));
+
+		var result = Api.Store.GetFavoriteStickers();
+
+		result.Count.Should()
+			.Be(2);
+
+		var first = result[0];
+
+		first.Id.Should()
+			.Be(126);
+
+		first.InnerType.Should()
+			.Be("base_sticker_new");
+
+		first.IsAllowed.Should()
+			.BeTrue();
+
+		var second = result[1];
+
+		second.Id.Should()
+			.Be(70);
+
+		second.InnerType.Should()
+			.Be("base_sticker_new");
+
+		second.IsAllowed.Should()
+			.BeFalse();
+	}
 }

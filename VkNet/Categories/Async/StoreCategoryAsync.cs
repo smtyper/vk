@@ -15,4 +15,8 @@ public partial class StoreCategory
 				"sticker_ids", @params.StickerIds
 			}
 		});
+
+	/// <inheritdoc />
+	public VkCollection<Sticker> GetFavoriteStickers() =>
+		_vk.Call<VkCollection<Sticker>>("store.getFavoriteStickers", new());
 }
