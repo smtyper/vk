@@ -793,6 +793,9 @@ public class VkApi : IVkApi
 
 	/// <inheritdoc />
 	public IStoreCategory Store { get; set; }
+  
+	/// <inheritdoc />
+	public ICallsCategory Calls { get; set; }
 
 	#endregion
 
@@ -1088,6 +1091,7 @@ public class VkApi : IVkApi
 		Asr = new AsrCategory(this);
 		ShortVideo = new ShortVideoCategory(this);
 		Store = new StoreCategory(this);
+		Calls = new CallsCategory(this);
 
 		RequestsPerSecond = 3;
 
