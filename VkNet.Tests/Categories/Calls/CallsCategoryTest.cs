@@ -23,4 +23,23 @@ public class CallsCategoryTest : CategoryBaseTest
 		result.Should()
 			.BeTrue();
 	}
+
+	[Fact]
+	public void Start()
+	{
+		Url = "https://api.vk.com/method/calls.start";
+
+		ReadCategoryJsonPath(nameof(Start));
+
+		var result = Api.Calls.Start(new());
+
+		result.JoinLink.Should()
+			.Be("https://vk.com/call/join/7BIRLBXzMD74J_JGR3G5wNZbZCkAT_ZtNFzJbHhIkMk");
+
+		result.OkJoinLink.Should()
+			.Be("7BIRLBXzMD74J_JGR3G5wNZbZCkAT_ZtNFzJbHhIkMk");
+
+		result.CallId.Should()
+			.Be("10c5386e-10cb-43c6-999a-d01a37ee71e0");
+	}
 }

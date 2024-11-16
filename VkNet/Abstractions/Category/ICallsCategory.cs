@@ -9,4 +9,7 @@ public interface ICallsCategory : ICallsCategoryAsync
 {
 	/// <inheritdoc cref="ICallsCategoryAsync.ForceFinishAsync"/>
 	bool ForceFinish(CallsForceFinishParams @params);
+
+	/// <inheritdoc cref="ICallsCategoryAsync.StartAsync"/>
+	CallStartResult Start(CallsStartParams @params);
 }
