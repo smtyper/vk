@@ -16,7 +16,7 @@ public interface IStoreCategoryAsync
 	/// <param name="params">Параметры запроса</param>
 	/// <param name="token">Токен отмены операции.</param>
 	/// <returns>
-	/// После успешного выполнения возвращает 1.
+	/// После успешного выполнения возвращает true.
 	/// </returns>
 	/// <remarks>
 	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.addStickersToFavorite
@@ -40,6 +40,9 @@ public interface IStoreCategoryAsync
 	/// <param name="params">Параметры запроса</param>
 	/// <param name="token">Токен отмены операции</param>
 	/// <returns>После успешного выполнения возвращает список объектов Product</returns>
+	/// <remarks>
+	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.getProducts
+	/// </remarks>
 	Task<VkCollection<Product>> GetProductsAsync(StoreGetProductsParams @params,
 												CancellationToken token = default);
 
@@ -49,6 +52,21 @@ public interface IStoreCategoryAsync
 	/// <param name="params">Параметры запроса</param>
 	/// <param name="token">Токен отмены операции</param>
 	/// <returns>Возвращается объект StickersKeywords</returns>
+	/// <remarks>
+	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.getStickersKeywords
+	/// </remarks>
 	Task<StickersKeywords> GetStickersKeywordsAsync(StoreGetStickersKeywordsParams @params,
 													CancellationToken token = default);
+
+	/// <summary>
+	/// Удаляет стикер из избранных.
+	/// </summary>
+	/// <param name="params">Параметры запроса</param>
+	/// <param name="token">Токен отмены операции</param>
+	/// <returns>После успешного выполнения возвращает true</returns>
+	/// <remarks>
+	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.removeStickersFromFavorite
+	/// </remarks>
+	Task<bool> RemoveStickersFromFavoriteAsync(StoreRemoveStickersFromFavoriteParams @params,
+												CancellationToken token = default);
 }

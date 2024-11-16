@@ -150,4 +150,20 @@ public class StoreCategoryTest : CategoryBaseTest
 		sticker.IsAllowed.Should()
 			.BeTrue();
 	}
+
+	[Fact]
+	public void RemoveStickersFromFavorite()
+	{
+		Url = "https://api.vk.com/method/store.removeStickersFromFavorite";
+
+		ReadCategoryJsonPath(nameof(RemoveStickersFromFavorite));
+
+		var result = Api.Store.RemoveStickersFromFavorite(new()
+		{
+			StickerIds = ["126", "70"]
+		});
+
+		result.Should()
+			.BeTrue();
+	}
 }

@@ -37,4 +37,9 @@ public partial class StoreCategory
 	public Task<StickersKeywords> GetStickersKeywordsAsync(StoreGetStickersKeywordsParams @params, CancellationToken token = default) =>
 		TypeHelper.TryInvokeMethodAsync(() =>
 			GetStickersKeywords(@params), token);
+
+	/// <inheritdoc />
+	public Task<bool> RemoveStickersFromFavoriteAsync(StoreRemoveStickersFromFavoriteParams @params, CancellationToken token = default) =>
+		TypeHelper.TryInvokeMethodAsync(() =>
+			RemoveStickersFromFavorite(@params), token);
 }

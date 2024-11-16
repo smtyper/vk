@@ -61,4 +61,13 @@ public partial class StoreCategory : IStoreCategory
 				"need_stickers", @params.NeedStickers
 			}
 		});
+
+	/// <inheritdoc />
+	public bool RemoveStickersFromFavorite(StoreRemoveStickersFromFavoriteParams @params) =>
+		_vk.Call<bool>("store.removeStickersFromFavorite", new()
+		{
+			{
+				"sticker_ids", @params.StickerIds
+			}
+		});
 }

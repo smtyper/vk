@@ -19,4 +19,7 @@ public interface IStoreCategory : IStoreCategoryAsync
 
 	/// <inheritdoc cref="IStoreCategoryAsync.GetStickersKeywordsAsync"/>
 	StickersKeywords GetStickersKeywords(StoreGetStickersKeywordsParams @params);
+
+	/// <inheritdoc cref="IStoreCategoryAsync.RemoveStickersFromFavoriteAsync"/>
+	bool RemoveStickersFromFavorite(StoreRemoveStickersFromFavoriteParams @params);
 }
