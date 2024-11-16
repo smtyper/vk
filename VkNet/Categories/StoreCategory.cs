@@ -27,4 +27,9 @@ public partial class StoreCategory : IStoreCategory
 	public Task<VkCollection<Sticker>> GetFavoriteStickersAsync(CancellationToken token = default) =>
 		TypeHelper.TryInvokeMethodAsync(
 			GetFavoriteStickers, token);
+
+	/// <inheritdoc />
+	public Task<VkCollection<Product>> GetProductsAsync(StoreGetProductsParams @params, CancellationToken token = default) =>
+		TypeHelper.TryInvokeMethodAsync(() =>
+			GetProducts(@params), token);
 }

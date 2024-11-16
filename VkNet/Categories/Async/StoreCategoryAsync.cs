@@ -19,4 +19,27 @@ public partial class StoreCategory
 	/// <inheritdoc />
 	public VkCollection<Sticker> GetFavoriteStickers() =>
 		_vk.Call<VkCollection<Sticker>>("store.getFavoriteStickers", new());
+
+	/// <inheritdoc />
+	public VkCollection<Product> GetProducts(StoreGetProductsParams @params)
+	{
+		return _vk.Call<VkCollection<Product>>("store.getProducts", new()
+		{
+			{
+				"type", @params.Type
+			},
+			{
+				"merchant", @params.Merchant
+			},
+			{
+				"product_ids", @params.ProductIds
+			},
+			{
+				"filters", @params.Filters
+			},
+			{
+				"extended", @params.Extended
+			}
+		});
+	}
 }

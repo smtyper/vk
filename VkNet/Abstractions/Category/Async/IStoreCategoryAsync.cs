@@ -33,4 +33,13 @@ public interface IStoreCategoryAsync
 	/// Страница документации ВКонтакте https://dev.vk.com/ru/method/store.getFavoriteStickers
 	/// </remarks>
 	Task<VkCollection<Sticker>> GetFavoriteStickersAsync(CancellationToken token = default);
+
+	/// <summary>
+	/// Возвращает список продуктов.
+	/// </summary>
+	/// <param name="params">Параметры запроса</param>
+	/// <param name="token">Токен отмены операции</param>
+	/// <returns>После успешного выполнения возвращает список объектов Product</returns>
+	Task<VkCollection<Product>> GetProductsAsync(StoreGetProductsParams @params,
+												CancellationToken token = default);
 }

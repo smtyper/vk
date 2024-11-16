@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
+using VkNet.Enums.StringEnums;
 using VkNet.Tests.Infrastructure;
 using Xunit;
 
@@ -57,5 +59,59 @@ public class StoreCategoryTest : CategoryBaseTest
 
 		second.IsAllowed.Should()
 			.BeFalse();
+	}
+
+	[Fact]
+	public void GetProducts()
+	{
+		Url = "https://api.vk.com/method/store.getProducts";
+
+		ReadCategoryJsonPath(nameof(GetProducts));
+
+		var result = Api.Store.GetProducts(new()
+		{
+			Type = ProductType.Stickers,
+			ProductIds = ["148"],
+			Filters = [ProductStatusFilter.Purchased, ProductStatusFilter.Active],
+			Extended = true
+		});
+
+		result.Count.Should()
+			.Be(1);
+
+		var product = result[0];
+
+		product.Id.Should()
+			.Be(148);
+
+		product.Type.Should()
+			.Be(ProductType.Stickers);
+
+		product.IsNew.Should()
+			.BeFalse();
+
+		product.Copyright.Should()
+			.Be("ООО «ВКонтакте» 2017");
+
+		product.Purchased.Should()
+			.BeTrue();
+
+		product.Active.Should()
+			.BeTrue();
+
+		product.PurchaseDate.Should()
+			.Be(DateTime.Parse("2024-01-10 12:52:23 PM"));
+
+		product.Title.Should()
+			.Be("#ПушкинНашеВсё");
+
+		product.Stickers.Count.Should()
+			.Be(24);
+
+		product.Icon.BaseUrl.Should()
+			.Be("https://vk.com/sticker/packs/148/icon");
+
+		product.Previews.Count.Should()
+			.Be(5);
 	}
 }
