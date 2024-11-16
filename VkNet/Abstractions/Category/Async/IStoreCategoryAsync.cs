@@ -42,4 +42,13 @@ public interface IStoreCategoryAsync
 	/// <returns>После успешного выполнения возвращает список объектов Product</returns>
 	Task<VkCollection<Product>> GetProductsAsync(StoreGetProductsParams @params,
 												CancellationToken token = default);
+
+	/// <summary>
+	/// Возвращает список ключевых слов для стикеров.
+	/// </summary>
+	/// <param name="params">Параметры запроса</param>
+	/// <param name="token">Токен отмены операции</param>
+	/// <returns>Возвращается объект StickersKeywords</returns>
+	Task<StickersKeywords> GetStickersKeywordsAsync(StoreGetStickersKeywordsParams @params,
+													CancellationToken token = default);
 }

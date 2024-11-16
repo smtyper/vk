@@ -16,4 +16,7 @@ public interface IStoreCategory : IStoreCategoryAsync
 
 	/// <inheritdoc cref="IStoreCategoryAsync.GetProductsAsync"/>
 	VkCollection<Product> GetProducts(StoreGetProductsParams @params);
+
+	/// <inheritdoc cref="IStoreCategoryAsync.GetStickersKeywordsAsync"/>
+	StickersKeywords GetStickersKeywords(StoreGetStickersKeywordsParams @params);
 }

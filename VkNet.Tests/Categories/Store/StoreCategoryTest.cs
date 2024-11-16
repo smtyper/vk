@@ -114,4 +114,40 @@ public class StoreCategoryTest : CategoryBaseTest
 		product.Previews.Count.Should()
 			.Be(5);
 	}
+
+	[Fact]
+	public void GetStickersKeywords()
+	{
+		Url = "https://api.vk.com/method/store.getStickersKeywords";
+
+		ReadCategoryJsonPath(nameof(GetStickersKeywords));
+
+		var result = Api.Store.GetStickersKeywords(new()
+		{
+			StickerIds = ["126"],
+			Aliases = true,
+			AllProducts = false,
+			NeedStickers = true
+		});
+
+		result.Dictionary.Count.Should()
+			.Be(1);
+
+		result.Dictionary[0].Words.Count.Should()
+			.Be(51);
+
+		result.Dictionary[0].UserStickers.Count.Should()
+			.Be(1);
+
+		var sticker = result.Dictionary[0].UserStickers[0];
+
+		sticker.InnerType.Should()
+			.Be("base_sticker_new");
+
+		sticker.Id.Should()
+			.Be(126);
+
+		sticker.IsAllowed.Should()
+			.BeTrue();
+	}
 }
